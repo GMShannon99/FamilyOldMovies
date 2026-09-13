@@ -108,11 +108,7 @@
     exited = true;
     appEl.classList.add("exiting");
     setTimeout(function () {
-      try {
-        window.close();
-      } catch (e) {
-        /* ignore: not all browsers allow scripted tabs to close themselves */
-      }
+      window.location.href = "https://gmshannon99.github.io/MySelectMenu/";
     }, 850);
   }
 
