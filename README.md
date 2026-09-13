@@ -10,17 +10,19 @@ https://gmshannon99.github.io/FamilyOldMovies/.
 
 Each movie is either hosted locally as an mp4 under `assets/movies/`, or
 embedded from YouTube - whichever keeps the file under GitHub's 100MB push
-limit while staying as close to full quality as practical. Most of these
-started as local re-encodes and were moved to YouTube afterward once a
-local file turned out to be too large (or too low quality after the
-compression needed to fit) for a comfortable local copy.
+limit while staying as close to full quality as practical. All seven are
+currently YouTube-hosted (each one started as a local re-encode and was
+moved to YouTube once the local file turned out too large, or too low
+quality after the compression needed to fit, for a comfortable local copy);
+local hosting remains fully supported in the code for any future addition
+that doesn't need it.
 
 | Title | Hosting | Where |
 |---|---|---|
 | Mickeys First Hair Cut | YouTube | [OQ8OctGR2Gw](https://youtu.be/OQ8OctGR2Gw) |
 | 125 Mafalda Drive Picnic | YouTube | [2jI7BvJwE3w](https://youtu.be/2jI7BvJwE3w) |
 | Church Picnic | YouTube | [cJrBZvsf3KA](https://youtu.be/cJrBZvsf3KA) |
-| Another Picnic | Local mp4 | `assets/movies/another-picnic.mp4` |
+| Another Picnic | YouTube | [QI-d92C2S9U](https://youtu.be/QI-d92C2S9U) |
 | 150 Woodside | YouTube | [gVNv7nuuWbg](https://youtu.be/gVNv7nuuWbg) |
 | Family Christmas Time | YouTube | [KWEZrLoz464](https://youtu.be/KWEZrLoz464) |
 | Fun at Crystal Beach | YouTube | [DzzNt3oLtkY](https://youtu.be/DzzNt3oLtkY) |
@@ -78,19 +80,20 @@ array. Clicking it navigates to
 [MySelectMenu](https://gmshannon99.github.io/MySelectMenu/), the launcher
 this app is normally opened from.
 
-## Why some movies are YouTube-hosted instead of local
+## Why the movies are YouTube-hosted instead of local
 
 Local playback (`video-player`, full-page `<video>`, click-anywhere/`ended`
-event to close) is the simpler path and was the original design. A handful
-of the source files, though, were long enough that re-encoding them to fit
-under GitHub's 100MB push limit at the standard 720p/CRF 23 settings either
-produced files still too large, or required compressing quality down
-enough that YouTube hosting became the better tradeoff. YouTube playback
-uses a cross-origin `<iframe>` instead of a `<video>` element, which changes
-how the overlay closes: clicks inside the iframe never reach our document,
-and there's no `ended` event without loading the full YouTube IFrame Player
-API, so a dedicated close button (visible only for YouTube entries) stands
-in for both.
+event to close) is the simpler path and was the original design, and is
+still what the code falls back to for any entry with a `video` field. Each
+of these seven source files, though, was long enough that re-encoding it to
+fit under GitHub's 100MB push limit at the standard 720p/CRF 23 settings
+either produced a file still too large, or required compressing quality
+down enough that YouTube hosting became the better tradeoff. YouTube
+playback uses a cross-origin `<iframe>` instead of a `<video>` element,
+which changes how the overlay closes: clicks inside the iframe never reach
+our document, and there's no `ended` event without loading the full
+YouTube IFrame Player API, so a dedicated close button (visible only for
+YouTube entries) stands in for both.
 
 ## A note on GitHub Pages deploys
 

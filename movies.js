@@ -30,8 +30,8 @@ window.MOVIES = [
   {
     id: "another-picnic",
     title: "Another Picnic",
-    video: "assets/movies/another-picnic.mp4",
     thumb: "assets/thumbnails/another-picnic.jpg",
+    youtubeId: "QI-d92C2S9U",
     source: "t1.mp4"
   },
   {
