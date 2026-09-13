@@ -113,8 +113,6 @@ html, body {
 .exit-card .filmstrip {
   background: none;
   box-shadow: none;
-  border: 1px dashed rgba(255, 255, 255, 0.4);
-  border-radius: 8px;
   align-items: center;
   justify-content: center;
   height: 140px;
@@ -122,9 +120,15 @@ html, body {
 }
 
 .exit-card .exit-symbol {
-  font-size: 32px;
-  line-height: 1;
-  color: #ffffff;
+  display: block;
+  width: 70%;
+  max-width: 110px;
+}
+
+.exit-card .exit-symbol svg {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .exit-card .movie-title {

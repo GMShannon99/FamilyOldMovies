@@ -61,7 +61,11 @@
 
     var symbol = document.createElement("span");
     symbol.className = "exit-symbol";
-    symbol.textContent = "✕";
+    symbol.innerHTML =
+      '<svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">' +
+      '<rect x="3" y="3" width="114" height="34" rx="5" fill="none" stroke="#ffffff" stroke-width="4"/>' +
+      '<path d="M20 20 H86 M64 6 L92 20 L64 34" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>' +
+      "</svg>";
     strip.appendChild(symbol);
 
     card.appendChild(strip);

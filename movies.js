@@ -43,5 +43,12 @@ window.MOVIES = [
     video: "assets/movies/family-christmas-time.mp4",
     thumb: "assets/thumbnails/family-christmas-time.jpg",
     source: "Uncle M Aunt L.mp4"
+  },
+  {
+    id: "fun-at-crystal-beach",
+    title: "Fun at Crystal Beach",
+    video: "assets/movies/fun-at-crystal-beach.mp4",
+    thumb: "assets/thumbnails/fun-at-crystal-beach.jpg",
+    source: "0019 Mickey baby.mp4"
   }
 ];
