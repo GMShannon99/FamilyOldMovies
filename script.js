@@ -7,6 +7,8 @@
   var gridEl = document.getElementById("movie-grid");
   var videoOverlayEl = document.getElementById("video-overlay");
   var videoPlayerEl = document.getElementById("video-player");
+  var youtubePlayerEl = document.getElementById("youtube-player");
+  var overlayCloseBtnEl = document.getElementById("overlay-close-btn");
 
   var videoOpen = false;
   var exited = false;
@@ -80,27 +82,50 @@
     return card;
   }
 
-  // Opens the clicked movie full-screen on the black stage. play() is called
-  // synchronously inside this click handler (a direct user gesture), which is
-  // what lets the browser play it unmuted instead of blocking it as autoplay.
+  // Opens the clicked movie full-screen on the black stage. For local movies,
+  // play() is called synchronously inside this click handler (a direct user
+  // gesture), which is what lets the browser play it unmuted instead of
+  // blocking it as autoplay. YouTube-hosted movies use autoplay=0 in the
+  // embed URL instead (see buildYoutubeEmbedUrl) and start via the player's
+  // own on-screen play button.
+  function buildYoutubeEmbedUrl(youtubeId) {
+    return "https://www.youtube.com/embed/" + youtubeId + "?rel=0&autoplay=0";
+  }
+
   function openVideo(movie) {
-    videoPlayerEl.src = movie.video;
     videoOverlayEl.classList.add("visible");
     videoOverlayEl.setAttribute("aria-hidden", "false");
     videoOpen = true;
-    videoPlayerEl.play().catch(function () {
-      /* ignore: some browsers may still reject programmatic play() */
-    });
+
+    if (movie.youtubeId) {
+      videoOverlayEl.classList.add("youtube-mode");
+      videoPlayerEl.style.display = "none";
+      youtubePlayerEl.style.display = "block";
+      youtubePlayerEl.src = buildYoutubeEmbedUrl(movie.youtubeId);
+    } else {
+      videoOverlayEl.classList.remove("youtube-mode");
+      youtubePlayerEl.style.display = "none";
+      videoPlayerEl.style.display = "block";
+      videoPlayerEl.src = movie.video;
+      videoPlayerEl.play().catch(function () {
+        /* ignore: some browsers may still reject programmatic play() */
+      });
+    }
   }
 
   function closeVideo() {
     if (!videoOpen) return;
     videoOpen = false;
     videoOverlayEl.classList.remove("visible");
+    videoOverlayEl.classList.remove("youtube-mode");
     videoOverlayEl.setAttribute("aria-hidden", "true");
     videoPlayerEl.pause();
     videoPlayerEl.removeAttribute("src");
     videoPlayerEl.load();
+    // Clearing src (rather than just hiding the iframe) is what actually
+    // stops YouTube playback/audio, since the embedded player keeps running
+    // in its own document otherwise.
+    youtubePlayerEl.removeAttribute("src");
   }
 
   function exitViewer() {
@@ -125,5 +150,10 @@
 
   videoPlayerEl.addEventListener("ended", closeVideo);
   videoPlayerEl.addEventListener("click", closeVideo);
+  // A cross-origin YouTube iframe can't be clicked-through to close the way
+  // the same-origin <video> element can (clicks inside it never reach our
+  // document), and there's no "ended" event without the full YouTube IFrame
+  // Player API, so the close button above is the reliable affordance here.
+  overlayCloseBtnEl.addEventListener("click", closeVideo);
   document.addEventListener("keydown", handleKeydown);
 })();

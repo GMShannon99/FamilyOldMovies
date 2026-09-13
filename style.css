@@ -162,6 +162,37 @@ html, body {
   object-fit: contain;
 }
 
+.youtube-player {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  border: none;
+}
+
+/* Cross-origin iframe content swallows clicks before they reach our page,
+   so YouTube playback can't rely on "click the video to close" like local
+   <video> playback does - this button is the reliable close affordance. */
+.overlay-close-btn {
+  display: none;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 51;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.video-overlay.youtube-mode .overlay-close-btn {
+  display: block;
+}
+
 @media (max-width: 640px) {
   #site-title {
     font-size: 24px;

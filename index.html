@@ -19,6 +19,15 @@
 
   <div id="video-overlay" class="video-overlay" aria-hidden="true">
     <video id="video-player" class="video-player" playsinline></video>
+    <iframe
+      id="youtube-player"
+      class="youtube-player"
+      title="Movie"
+      frameborder="0"
+      allow="autoplay; encrypted-media; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+    <button type="button" id="overlay-close-btn" class="overlay-close-btn" aria-label="Close video">&#10005;</button>
   </div>
 
   <script src="movies.js"></script>

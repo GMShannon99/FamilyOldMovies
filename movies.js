@@ -1,6 +1,10 @@
 // Movie catalog for the viewer. Video/thumbnail filenames are slugs (not the
 // original source filenames) to avoid spaces/"&" in asset paths; the source
 // column below is just for traceability back to D:/GilsWorkFolder/Pictures/Movie.
+// Entries have either a `video` (local mp4 under assets/movies) or a
+// `youtubeId` (hosted on YouTube instead, e.g. because the local file was
+// too large to commit) - script.js picks the playback path based on which
+// field is present.
 window.MOVIES = [
   {
     id: "mickeys-first-haircut",
@@ -47,8 +51,8 @@ window.MOVIES = [
   {
     id: "fun-at-crystal-beach",
     title: "Fun at Crystal Beach",
-    video: "assets/movies/fun-at-crystal-beach.mp4",
     thumb: "assets/thumbnails/fun-at-crystal-beach.jpg",
+    youtubeId: "DzzNt3oLtkY",
     source: "0019 Mickey baby.mp4"
   }
 ];
