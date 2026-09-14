@@ -10,22 +10,26 @@ https://gmshannon99.github.io/FamilyOldMovies/.
 
 Each movie is either hosted locally as an mp4 under `assets/movies/`, or
 embedded from YouTube - whichever keeps the file under GitHub's 100MB push
-limit while staying as close to full quality as practical. All seven are
-currently YouTube-hosted (each one started as a local re-encode and was
-moved to YouTube once the local file turned out too large, or too low
-quality after the compression needed to fit, for a comfortable local copy);
-local hosting remains fully supported in the code for any future addition
-that doesn't need it.
+limit while staying as close to full quality as practical. All ten are
+currently YouTube-hosted (the first six started as a local re-encode and
+were moved to YouTube once the local file turned out too large, or too low
+quality after the compression needed to fit, for a comfortable local copy;
+the last four were added as YouTube-only from the start); local hosting
+remains fully supported in the code for any future addition that doesn't
+need it.
 
 | Title | Hosting | Where |
 |---|---|---|
 | Mickeys First Hair Cut | YouTube | [OQ8OctGR2Gw](https://youtu.be/OQ8OctGR2Gw) |
 | 125 Mafalda Drive Picnic | YouTube | [2jI7BvJwE3w](https://youtu.be/2jI7BvJwE3w) |
 | Church Picnic | YouTube | [cJrBZvsf3KA](https://youtu.be/cJrBZvsf3KA) |
-| Another Picnic | YouTube | [QI-d92C2S9U](https://youtu.be/QI-d92C2S9U) |
 | 150 Woodside | YouTube | [gVNv7nuuWbg](https://youtu.be/gVNv7nuuWbg) |
 | Family Christmas Time | YouTube | [KWEZrLoz464](https://youtu.be/KWEZrLoz464) |
-| Fun at Crystal Beach | YouTube | [DzzNt3oLtkY](https://youtu.be/DzzNt3oLtkY) |
+| Fun at Crystal Beach | YouTube | [tESBaY91sfk](https://youtu.be/tESBaY91sfk) |
+| Uncle Mike, Hartman, Sarach | YouTube | [QI-d92C2S9U](https://youtu.be/QI-d92C2S9U) |
+| Queen for a Day | YouTube | [JEc1h-xvOvY](https://youtu.be/JEc1h-xvOvY) |
+| Mickey and puppies | YouTube | [WTOVfmdkA8k](https://youtu.be/WTOVfmdkA8k) |
+| Aunt Rickie's Birthday | YouTube | [R3rtlTn6U3k](https://youtu.be/R3rtlTn6U3k) |
 
 The catalog lives in `movies.js`, one object per movie:
 
@@ -34,7 +38,7 @@ The catalog lives in `movies.js`, one object per movie:
   id: "fun-at-crystal-beach",
   title: "Fun at Crystal Beach",
   thumb: "assets/thumbnails/fun-at-crystal-beach.jpg",
-  youtubeId: "DzzNt3oLtkY",      // YouTube-hosted entries
+  youtubeId: "tESBaY91sfk",      // YouTube-hosted entries
   // video: "assets/movies/...", // local entries use this instead
   source: "0019 Mickey baby.mp4" // original filename, for traceability
                                  // back to D:/GilsWorkFolder/Pictures/Movie
@@ -43,9 +47,13 @@ The catalog lives in `movies.js`, one object per movie:
 
 An entry has either a `video` (local mp4) or a `youtubeId` (YouTube embed),
 never both - `script.js` picks the playback path based on which field is
-present. `source` is kept on every entry regardless of hosting, purely as a
-record of which original file this movie came from. `thumb` (the grid
-icon's thumbnail) is unaffected by which playback path is used.
+present. `source` is included when the movie started life as a local file,
+as a record of which original file it came from; entries added as
+YouTube-only from the start (no local re-encode ever existed) omit it.
+`thumb` is normally a local file under `assets/thumbnails/`, but can also
+be a remote URL (e.g. `https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg`,
+YouTube's own thumbnail) for entries that skip generating a local
+thumbnail - either way it's unaffected by which playback path is used.
 
 ### Adding a local movie
 
