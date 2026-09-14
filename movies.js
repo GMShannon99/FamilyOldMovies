@@ -28,13 +28,6 @@ window.MOVIES = [
     source: "Church Picnic.avi"
   },
   {
-    id: "another-picnic",
-    title: "Another Picnic",
-    thumb: "assets/thumbnails/another-picnic.jpg",
-    youtubeId: "QI-d92C2S9U",
-    source: "t1.mp4"
-  },
-  {
     id: "150-woodside",
     title: "150 Woodside",
     thumb: "assets/thumbnails/150-woodside.jpg",
@@ -52,7 +45,31 @@ window.MOVIES = [
     id: "fun-at-crystal-beach",
     title: "Fun at Crystal Beach",
     thumb: "assets/thumbnails/fun-at-crystal-beach.jpg",
-    youtubeId: "DzzNt3oLtkY",
+    youtubeId: "tESBaY91sfk",
     source: "0019 Mickey baby.mp4"
+  },
+  {
+    id: "uncle-mike-hartman-sarach",
+    title: "Uncle Mike, Hartman, Sarach",
+    thumb: "https://img.youtube.com/vi/QI-d92C2S9U/hqdefault.jpg",
+    youtubeId: "QI-d92C2S9U"
+  },
+  {
+    id: "queen-for-a-day",
+    title: "Queen for a Day",
+    thumb: "https://img.youtube.com/vi/JEc1h-xvOvY/hqdefault.jpg",
+    youtubeId: "JEc1h-xvOvY"
+  },
+  {
+    id: "mickey-and-puppies",
+    title: "Mickey and puppies",
+    thumb: "https://img.youtube.com/vi/WTOVfmdkA8k/hqdefault.jpg",
+    youtubeId: "WTOVfmdkA8k"
+  },
+  {
+    id: "aunt-rickies-birthday",
+    title: "Aunt Rickie's Birthday",
+    thumb: "https://img.youtube.com/vi/R3rtlTn6U3k/hqdefault.jpg",
+    youtubeId: "R3rtlTn6U3k"
   }
 ];
