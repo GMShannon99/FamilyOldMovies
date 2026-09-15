@@ -25,7 +25,7 @@ need it.
 | Church Picnic | YouTube | [cJrBZvsf3KA](https://youtu.be/cJrBZvsf3KA) |
 | 150 Woodside | YouTube | [gVNv7nuuWbg](https://youtu.be/gVNv7nuuWbg) |
 | Family Christmas Time | YouTube | [KWEZrLoz464](https://youtu.be/KWEZrLoz464) |
-| Fun at Crystal Beach | YouTube | [tESBaY91sfk](https://youtu.be/tESBaY91sfk) |
+| Outing at Crystal Beach | YouTube | [DVcUslMnzsI](https://youtu.be/DVcUslMnzsI) |
 | Uncle Mike, Hartman, Sarach | YouTube | [QI-d92C2S9U](https://youtu.be/QI-d92C2S9U) |
 | Queen for a Day | YouTube | [JEc1h-xvOvY](https://youtu.be/JEc1h-xvOvY) |
 | Mickey and puppies | YouTube | [WTOVfmdkA8k](https://youtu.be/WTOVfmdkA8k) |
@@ -35,13 +35,13 @@ The catalog lives in `movies.js`, one object per movie:
 
 ```js
 {
-  id: "fun-at-crystal-beach",
-  title: "Fun at Crystal Beach",
-  thumb: "assets/thumbnails/fun-at-crystal-beach.jpg",
-  youtubeId: "tESBaY91sfk",      // YouTube-hosted entries
+  id: "mickeys-first-haircut",
+  title: "Mickeys First Hair Cut",
+  thumb: "assets/thumbnails/mickeys-first-haircut.jpg",
+  youtubeId: "OQ8OctGR2Gw",      // YouTube-hosted entries
   // video: "assets/movies/...", // local entries use this instead
-  source: "0019 Mickey baby.mp4" // original filename, for traceability
-                                 // back to D:/GilsWorkFolder/Pictures/Movie
+  source: "0019 Mickey baby first hair cut.mp4" // original filename, for
+                                 // traceability back to D:/GilsWorkFolder/Pictures/Movie
 }
 ```
 

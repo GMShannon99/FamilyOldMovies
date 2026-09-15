@@ -42,11 +42,10 @@ window.MOVIES = [
     source: "Uncle M Aunt L.mp4"
   },
   {
-    id: "fun-at-crystal-beach",
-    title: "Fun at Crystal Beach",
-    thumb: "assets/thumbnails/fun-at-crystal-beach.jpg",
-    youtubeId: "tESBaY91sfk",
-    source: "0019 Mickey baby.mp4"
+    id: "outing-at-crystal-beach",
+    title: "Outing at Crystal Beach",
+    thumb: "https://img.youtube.com/vi/DVcUslMnzsI/hqdefault.jpg",
+    youtubeId: "DVcUslMnzsI"
   },
   {
     id: "uncle-mike-hartman-sarach",
